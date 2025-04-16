@@ -49,7 +49,7 @@ Core components of AI systems — data, compute, models, deployment — that gov
 
 Each capacity can be applied to each target.
 
-# TAIG Capacities (Part of 2D Taxonomy)
+### TAIG Capacities (Part of 2D Taxonomy)
 
 Each "capacity" is a type of technical ability that helps governance efforts do their job better.
 
@@ -132,7 +132,7 @@ Enables informed decision-making, anticipation of future challenges, and identif
 It’s not enough to monitor one model — you need to see the whole picture: who’s building what, how AI is changing society, and where new problems might show up. It’s like radar — without it, you’re flying blind.
 
 ---
-# TAIG Targets (Part of 2D Taxonomy)
+### TAIG Targets (Part of 2D Taxonomy)
 
 Each "target" is a component of AI systems that governance efforts might want to influence or regulate.
 
@@ -218,7 +218,7 @@ It’s not just how the model is built — it’s how it’s used. Even good mod
 - how does bad data affect downstream behavior?  
 - can we trace specific behavior back to specific data?
 
-3.4.1 — downstream impact
+## 3.4.1 — downstream impact
 
 ### summary
 
