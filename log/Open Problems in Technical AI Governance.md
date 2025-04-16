@@ -188,3 +188,78 @@ Even safe-looking models can cause harm when deployed at scale. Governance must 
 **Comment:**  
 It’s not just how the model is built — it’s how it’s used. Even good models can do harm if deployed carelessly.
 
+## 3.1 Assessment
+- assessment is key to ai governance — helps catch risks early  
+- real-world examples: red-teaming (bletchley), eval sharing (white house eo)  
+- goal: detect harm, ensure safety, robustness, fairness  
+- problem: evals for foundation models are still messy and expensive  
+- some standards exist (nist, uk safety institute), but core issues remain
+
+### my thoughts
+
+- current evals tell us what a model *can* do — not what it *can’t*  
+- but safety guarantees depend on knowing what a model is **incapable** of doing  
+- no existing benchmark directly tells us “this behavior is impossible”  
+- still, benchmarks and red-team demos are valuable — we should do more of them  
+- seems worth thinking about how to move from observed behavior to bounds on unobserved behavior  
+- might be worth framing as: what’s the tightest safe assumption we can extract from a noisy eval
+
+### related research questions (from the paper)
+
+- how to scale detection of problematic data to trillions of tokens?  
+- how to automate license collection + validation?  
+- how to flag harmful data without direct access to full dataset?  
+- how to detect contamination of training data?  
+- how to remove harmful data without leaking info about what was removed?  
+- what reporting standards (license + metadata) are useful?  
+- what infra do researchers need to audit huge datasets?  
+- how to measure persistent bias at scale?  
+- how to tell if a dataset is fit for training?  
+- how does bad data affect downstream behavior?  
+- can we trace specific behavior back to specific data?
+
+3.4.1 — downstream impact
+
+### summary
+
+- model performance in isolation ≠ real-world impact  
+- we need ways to evaluate ai systems *in use*, not just in test conditions  
+- policymaker decisions depend on having that real-world picture  
+- current proxies (e.g. fairness metrics) miss actual societal effects  
+- hard to test across languages, contexts, cultures — takes time and coordination  
+- early taxonomies exist but we don’t have good methods yet  
+- real impact eval needs nuance, interdisciplinarity, inclusion
+
+### proposed problem:  
+how can we reliably predict and measure the real-world, downstream societal impacts of AI systems — including harm, inequality, and cultural shifts — given the complexity, scale, and interdisciplinary nature of these effects?
+
+### my thoughts
+
+it’s really hard to predict downstream impact — and not just because we don’t try hard enough  
+if we frame it as a technical problem with a full solution, it becomes intractable — we’d need a full model of society  
+and we don’t have that. nowhere close
+
+so what might be doable instead?  
+borrow ideas from fields that deal with complex systems under uncertainty — like medicine  
+we don’t try to predict a person’s entire medical future at age 5 based on their DNA  
+instead we do annual checkups — catch early signs, look for patterns
+
+maybe we can do the same here:  
+look at ai systems already deployed, figure out what impacts we’re already seeing  
+for example — youtube amplified flat-earth content → built filter bubbles → boosted antivax memes → possibly worsened pandemic outcomes  
+each step needs fact-checking, but this is the kind of pattern we might want to trace and generalize
+
+once we have the pattern, we can ask:  
+- what could have warned us?  
+- how would we notice a similar thing happening elsewhere?  
+- what would help avoid it?  
+not “better metrics” in general — if youtube had a metric that worked for this, they’d probably use it  
+maybe we need wrapper systems that don’t purely optimize engagement but also avoid failure modes, without hurting the platform’s bottom line
+
+### idea stub (to move to ideas.md)
+
+evaluate deployed ai systems by analyzing past harm patterns, tracing influence paths (like content → belief → behavior), and identifying early-warning signs  
+borrow from public health / epidemiology mindset: regular monitoring, early detection, targeted intervention
+
+---
+
