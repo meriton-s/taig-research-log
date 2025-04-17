@@ -18,7 +18,7 @@ I'm trying to get a better feel for the field of Technical AI Governance (TAIG),
   → udates and thoughts also go in daily logs (`log/2025-mm-dd.md`)
 
 ## Structure
-
+```
 ├── log/                         # Research logs, paper distillations, and reflections 
 │ ├── dist-%title-%author.md     # paper distillations 
 │ ├── 2025-mm-dd.md              # daily logs 
@@ -27,7 +27,7 @@ I'm trying to get a better feel for the field of Technical AI Governance (TAIG),
 ├── src/                         # Code and experiments (empty for now) 
 ├── results/                     # Outputs, diagrams, posts, figures, etc. (empty for now)  
 └── README.md                    # **You are here**
-
+```
 ## Contact
 
 If you're reading these notes and thinking,  
