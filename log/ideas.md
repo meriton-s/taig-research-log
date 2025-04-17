@@ -1,5 +1,5 @@
 # What's this
-raw ideas on what to do as a research project in TAIG
+raw ideas on what to do as a Technical AI Governance research project
 
 ## project 1 — tracing ai impact on user behavior  
 **source:** Open Problems in Technical AI Governance, section 8.1 + 8.2
