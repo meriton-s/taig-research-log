@@ -2,6 +2,7 @@
 raw ideas on what to do as a Technical AI Governance research project
 
 ## project 1 — tracing ai impact on user behavior  
+**problem:** 
 **source:** Open Problems in Technical AI Governance, section 8.1 + 8.2
 
 goal:  
@@ -16,11 +17,12 @@ steps:
 - if still yes, think from first principles: why does ai affect people that way?
 
 **status**: sounds feasible but depends on data access + narrowing scope  
-**priority**: high
+**priority**: medium
 
 ---
 
 ## project 2 — forecast falsification  
+**problem:**
 **source:** Open Problems in Technical AI Governance, section 8.2
 
 goal:  
@@ -34,7 +36,7 @@ steps:
 - search for signals that break (or match) expectations
 
 **status**: depends on data access, mostly conceptual, can be started solo  
-**priority**: medium
+**priority**: high
 
 ---
 
