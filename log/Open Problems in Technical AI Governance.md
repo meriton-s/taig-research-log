@@ -187,8 +187,8 @@ Even safe-looking models can cause harm when deployed at scale. Governance must 
 
 **Comment:**  
 It’s not just how the model is built — it’s how it’s used. Even good models can do harm if deployed carelessly.
-
-## 3.1 Assessment
+---
+# 3.1 Assessment
 - assessment is key to ai governance — helps catch risks early  
 - real-world examples: red-teaming (bletchley), eval sharing (white house eo)  
 - goal: detect harm, ensure safety, robustness, fairness  
@@ -196,7 +196,6 @@ It’s not just how the model is built — it’s how it’s used. Even good mod
 - some standards exist (nist, uk safety institute), but core issues remain
 
 ### my thoughts
-
 - current evals tell us what a model *can* do — not what it *can’t*  
 - but safety guarantees depend on knowing what a model is **incapable** of doing  
 - no existing benchmark directly tells us “this behavior is impossible”  
@@ -205,7 +204,6 @@ It’s not just how the model is built — it’s how it’s used. Even good mod
 - might be worth framing as: what’s the tightest safe assumption we can extract from a noisy eval
 
 ### related research questions (from the paper)
-
 - how to scale detection of problematic data to trillions of tokens?  
 - how to automate license collection + validation?  
 - how to flag harmful data without direct access to full dataset?  
@@ -217,11 +215,10 @@ It’s not just how the model is built — it’s how it’s used. Even good mod
 - how to tell if a dataset is fit for training?  
 - how does bad data affect downstream behavior?  
 - can we trace specific behavior back to specific data?
-
-## 3.4.1 — downstream impact
+---
+# 3.4.1 — downstream impact
 
 ### summary
-
 - model performance in isolation ≠ real-world impact  
 - we need ways to evaluate ai systems *in use*, not just in test conditions  
 - policymaker decisions depend on having that real-world picture  
@@ -234,7 +231,6 @@ It’s not just how the model is built — it’s how it’s used. Even good mod
 how can we reliably predict and measure the real-world, downstream societal impacts of AI systems — including harm, inequality, and cultural shifts — given the complexity, scale, and interdisciplinary nature of these effects?
 
 ### my thoughts
-
 it’s really hard to predict downstream impact — and not just because we don’t try hard enough  
 if we frame it as a technical problem with a full solution, it becomes intractable — we’d need a full model of society  
 and we don’t have that. nowhere close
@@ -260,6 +256,82 @@ maybe we need wrapper systems that don’t purely optimize engagement but also a
 
 evaluate deployed ai systems by analyzing past harm patterns, tracing influence paths (like content → belief → behavior), and identifying early-warning signs  
 borrow from public health / epidemiology mindset: regular monitoring, early detection, targeted intervention
+# 7 
+## 7.2 deployment corrections 
+### summary
+sometimes deployed models turn out to be flawed — they do stuff nobody expected, or get fine-tuned into something worse
+when that happens, we need ways to respond fast and with minimal collateral damage
+
+one option is what they call “deployment corrections” — interventions made after the model is live
+could be user limits, usage caps, disabling features, restricting use cases, or full shutdown
+
+but none of these are easy:
+- shutdown is disruptive — what happens to systems that rely on the model?
+- changing the model breaks stability + backward compatibility
+- we need ways to fix problems without breaking everything else
+
+lots of open questions here — especially on the technical side, not just governance
+
+types of deployment corrections (from o’brien et al.)
+- user-based restrictions — block or throttle access for specific users or user groups (e.g. if a certain actor is misusing the model)
+- access frequency limits — rate-limit queries or reduce throughput under certain conditions
+- capability or feature restrictions — disable parts of the model or cut off specific functionality (e.g. tool use, image generation, code output)
+- use case restrictions — prohibit certain applications entirely, even if the model could technically support them
+- model shutdown — full deactivation, temporary or permanent, if risks can't be mitigated
+
+### my thoughts
+- oh they’re actually writing about how shutting down a deployed system is a risk in itself — love that  
+- i remember thinking about this after the whole youtube + flat-earthers situation a few years back  
+sometimes pulling the plug *is* harm, especially if people rely on the system (even if it’s flawed)
 
 ---
+# 8 Ecosystem Monitoring
+## 8.1 clarification of associated risks 
 
+### summary
+ai is moving fast, and governance needs to keep up
+that means staying aware of what’s happening across the whole ecosystem — who’s building what, how they’re connected, what trends are emerging
+
+this kind of situational awareness (aka ecosystem monitoring) helps decision-makers
+- make better calls
+- see trouble coming
+- spot leverage points before stuff breaks
+
+- to govern ai well, we need a clear picture of what the actual risks are
+- that’s how you decide what to prioritize, where to put effort, and how urgent things are
+
+- but: we still don’t have good enough threat models
+- there’s been a lot of work on risk taxonomies, but we need better tools for understanding how things can go wrong, not just what can go wrong
+
+### my thoughts
+there should be stats on actual incidents or shifts caused by ai, right?
+or even just patterns of change that might be linked to ai — not necessarily confirmed harm, just signals
+
+ ## 8.2 Prediction of Future Developments and Impacts
+### summary
+- governance needs foresight — if we know where ai is going, we can act early instead of playing catch-up
+- this means tracking trends, making decent guesses, and knowing which predictions to actually trust
+
+- current work measures stuff like compute and algo progress — that’s a start
+- but we could also track how ai gets used across industries, or test how well past forecasts did
+
+- another challenge: figuring out a system’s impact before it’s deployed
+- that’s hard — but maybe possible with better threat models + safe ways to simulate outcomes without breaking things in the real world
+
+Open Problems:
+ Measuring and extrapolating from empirical trends. Existing work has aimed to empirically measure
+ trends in training compute (Sevilla et al., 2022) and algorithmic progress (Ho et al., 2024), among others
+ (Epoch, 2023). Future work could aim to extend this effort by quantifying other trends that have not yet
+ been addressed, such as usage patterns of AI in different industries, or assessing the accuracy of predictions
+ based on the extrapolation of observed trends.
+
+### my thoughts
+hmm… this section is about predicting what might happen in society by looking at current system-level trends.  
+compute is one stable handle — sure — but it’s not the only one
+
+we could also measure *engagement* — how widely and deeply people use ai in daily life  
+i'm especially curious about how this plays out cross-domain — like, are everyday users using the same models across work, school, hobbies?
+
+this probably affects risk profiles too — especially for malicious use.  
+if a tool becomes familiar and accessible, odds are higher someone will use it for something shady  
+not necessarily because it’s built for that — just because it’s *there*
